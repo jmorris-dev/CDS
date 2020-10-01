@@ -53,9 +53,8 @@
             $_SESSION['expire'] = time() + $timeout * 60;
         }
         echo "<p> Default Timeout is $timeout minutes. </p>";
-        $countdown = abs($_SESSION['expire'] - time())/60;
+        $countdown = intval(abs($_SESSION['expire'] - time())/60);
         echo "<p> Timeout is now $countdown minutes.";
-
         $sql = "SELECT * FROM customers;";
         $result = mysqli_query($conn, $sql);
 
